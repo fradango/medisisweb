@@ -5,10 +5,17 @@
         <img src="../assets/logo.png" alt="LogoMedisis" />
         <div class="brand-name">Medisis TI</div>
       </div>
+      <button class="hamburger-menu" @click="toggleMenu">
+        <font-awesome-icon
+          icon="fa-solid fa-bars"
+          class="size-icon"
+          style="color: #8be38f"
+        />
+      </button>
       <ul class="menu-box">
-        <li><a href="#">Nosotros</a></li>
-        <li><a href="#">Servicios</a></li>
-        <li><a href="#">Clientes</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#clientes">Clientes</a></li>
       </ul>
     </nav>
     <div class="banner-presentation">
@@ -19,10 +26,12 @@
       <div class="banner-editor">
         <div class="code-editor">
           <div class="editor-header">Medisis</div>
-          <div class="typing-text">
-            Potencia tu empresa con los mejores
-            <span class="dynamic-text">{{ dynamicText }}</span
-            ><span class="cursor">|</span>
+          <div class="editor-body">
+            <div class="typing-text">
+              Potencia tu empresa con los mejores
+              <span class="dynamic-text">{{ dynamicText }}</span
+              ><span class="cursor">|</span>
+            </div>
           </div>
         </div>
       </div>
@@ -42,6 +51,7 @@ export default {
         "administradores de base de datos",
       ],
       currentPhrase: 0,
+      isMenuOpen: false,
     };
   },
   mounted() {
@@ -77,6 +87,9 @@ export default {
       this.typePhrase(this.phrases[this.currentPhrase]);
       this.currentPhrase = (this.currentPhrase + 1) % this.phrases.length;
     },
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
+    },
   },
 };
 </script>
@@ -105,9 +118,10 @@ export default {
 }
 
 .logo-box {
-  width: 50%;
+  width: 60%;
   height: 100%;
   display: flex;
+  margin: 0 0 0 0;
 }
 
 .brand-name {
@@ -119,23 +133,20 @@ export default {
   font-family: "IBM Plex Sans", sans-serif;
 }
 
-.menu-box {
-  width: 50%;
-  list-style: none;
+.hamburger-menu {
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 40%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  margin: 0 15px 0 0;
 }
 
-.menu-box li {
-  margin-left: 20px;
-}
-
-.menu-box li a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  font-family: "IBM Plex Sans", sans-serif;
+.menu-box {
+  display: none;
 }
 
 .banner-presentation {
@@ -149,59 +160,65 @@ export default {
 }
 
 .banner-title-1 {
-  height: 10%;
-  margin-top: 8%;
+  height: 15%;
+  margin: 20px 15px 0 15px;
   color: white;
-  font-size: 50px;
+  font-size: 30px;
   text-align: center;
   font-weight: bold;
   font-family: "IBM Plex Sans", sans-serif;
 }
 
 .banner-title-2 {
-  height: 10%;
+  height: 15%;
   color: #8be38f;
-  font-size: 50px;
+  font-size: 30px;
+  margin: 0 15px 0 15px;
   text-align: center;
   font-weight: bold;
   font-family: "IBM Plex Sans", sans-serif;
 }
 
 .banner-editor {
-  height: 80%;
+  height: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .code-editor {
-  height: 50%;
-  width: 60%;
-  background-color: #282c34; /* Fondo oscuro típico de los editores de código */
-  color: #abb2bf; /* Color claro para el texto general */
-  border-radius: 10px; /* Bordes redondeados para la caja del editor */
-  font-family: "Fira Code", "Consolas", monospace; /* Fuente monoespaciada */
-  /*box-shadow: 0 8px 20px rgba(4, 103, 90, 0.7), 0 16px 30px rgba(0, 61, 53, 0.7);*/
+  height: 70%;
+  width: 80%;
+  background-color: #282c34;
+  color: #abb2bf;
+  border-radius: 10px;
+  font-family: "Fira Code", "Consolas", monospace;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
 }
 
 .editor-header {
-  background-color: #1e2125; /* Un tono ligeramente más oscuro para la barra superior */
+  background-color: #1e2125;
   color: #abb2bf;
   height: 10%;
-  border-top-left-radius: 10px; /* Redondear solo las esquinas superiores */
+  border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  padding: 10px 20px; /* Espaciado interno de la barra */
+  padding: 10px 20px;
+}
+
+.editor-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95%;
+  margin: 0 10px 0 10px;
 }
 
 .typing-text {
-  height: 95%;
   color: rgb(192, 192, 131);
-  font-size: 25px;
+  font-size: 20px;
   text-align: center;
-  margin: 50px;
 }
 
 .dynamic-text {
@@ -220,6 +237,154 @@ export default {
 @keyframes blink {
   50% {
     opacity: 0;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .banner-title-1 {
+    font-size: 35px;
+    height: 15%;
+    margin: 50px 50px 0 50px;
+  }
+
+  .banner-title-2 {
+    font-size: 35px;
+    height: 15%;
+    margin: 0 50px 0 50px;
+  }
+
+  .banner-editor {
+    height: 70%;
+  }
+
+  .code-editor {
+    height: 50%;
+  }
+
+  .editor-body {
+    margin: 0 50px 0 50px;
+  }
+
+  .typing-text {
+    font-size: 22px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .logo-box {
+    width: 50%;
+    margin: 0 0 0 25px;
+  }
+
+  .hamburger-menu {
+    display: none;
+  }
+
+  .menu-box {
+    width: 50%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0 50px 0 0;
+  }
+
+  .menu-box li {
+    margin-left: 20px;
+  }
+
+  .menu-box li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: "IBM Plex Sans", sans-serif;
+  }
+
+  .banner-title-1 {
+    font-size: 40px;
+    height: 10%;
+    margin: 50px 50px 0 50px;
+  }
+
+  .banner-title-2 {
+    font-size: 40px;
+    height: 10%;
+    margin: 0 50px 0 50px;
+  }
+
+  .banner-editor {
+    height: 80%;
+  }
+
+  .code-editor {
+    height: 50%;
+  }
+
+  .editor-body {
+    margin: 0 50px 0 50px;
+  }
+
+  .typing-text {
+    font-size: 25px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .logo-box {
+    width: 50%;
+    margin: 0 0 0 25px;
+  }
+
+  .hamburger-menu {
+    display: none;
+  }
+
+  .menu-box {
+    width: 50%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0 50px 0 0;
+  }
+
+  .menu-box li {
+    margin-left: 20px;
+  }
+
+  .menu-box li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: "IBM Plex Sans", sans-serif;
+  }
+
+  .banner-title-1 {
+    font-size: 50px;
+    height: 10%;
+    margin: 50px 50px 0 50px;
+  }
+
+  .banner-title-2 {
+    font-size: 50px;
+    height: 10%;
+    margin: 0 50px 0 50px;
+  }
+
+  .banner-editor {
+    height: 80%;
+  }
+
+  .code-editor {
+    height: 50%;
+  }
+
+  .editor-body {
+    margin: 0 50px 0 50px;
+  }
+
+  .typing-text {
+    font-size: 25px;
   }
 }
 </style>

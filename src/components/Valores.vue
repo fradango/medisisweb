@@ -6,13 +6,14 @@
         <swiper
           class="swiper"
           :modules="modules"
-          :slidesPerView="3"
-          :spaceBetween="40"
+          :slidesPerView="1"
+          :spaceBetween="20"
           loop="true"
           :navigation="false"
           :pagination="{ clickable: true }"
           mousewheel
           grab-cursor="true"
+          :breakpoints="breakpoints"
         >
           <swiper-slide
             class="swiper-slide"
@@ -22,7 +23,7 @@
             <article class="valores-card">
               <figure class="valores-card-img">
                 <font-awesome-icon
-                  icon="fa-regular fa-lightbulb"
+                  :icon="valor.icon"
                   class="size-icon"
                   style="color: #8be38f"
                 />
@@ -55,34 +56,54 @@ export default {
   },
   setup() {
     const modules = ref([Navigation, Pagination]);
+    const breakpoints = ref({
+      600: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      900: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+      },
+      1200: {
+        slidesPerView: 3,
+        spaceBetween: 40,
+      },
+    });
     return {
       modules,
+      breakpoints,
     };
   },
   data() {
     return {
       valores: [
         {
+          icon: "fa-regular fa-lightbulb",
           title: "Innovación Constante",
           description:
             "Impulsamos soluciones creativas y vanguardistas para mantener a nuestros clientes a la delantera tecnológica",
         },
         {
+          icon: "fa-solid fa-scale-balanced",
           title: "Integridad Total",
           description:
             "Operamos con transparencia y honestidad, construyendo relaciones de confianza con cada cliente",
         },
         {
+          icon: "fa-regular fa-handshake",
           title: "Colaboración Efectiva",
           description:
             "Fomentamos un trabajo en equipo sinérgico, tanto internamente como con nuestros socios y clientes",
         },
         {
+          icon: "fa-regular fa-star",
           title: "Excelencia Operativa",
           description:
             "Nos esforzamos por la perfección en cada proyecto, garantizando calidad y eficiencia máximas",
         },
         {
+          icon: "fa-solid fa-gears",
           title: "Adaptabilidad",
           description:
             "Nos adaptamos rápidamente a las cambiantes demandas del mercado para ofrecer soluciones flexibles y eficaces",
@@ -97,30 +118,28 @@ export default {
 .nosotros-valores {
   display: flex;
   flex-direction: column;
-  height: 600px;
+  height: 500px;
   background-color: #f0fff2;
 }
 
 .valores {
-  height: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  max-width: 1200px;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
 }
 
 .valores-title {
-  height: 20%;
+  height: 10%;
   width: 100%;
-  font-size: 35px;
+  font-size: 30px;
   font-weight: bold;
   color: #011832;
   font-family: "IBM Plex Sans", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 20px 0 0 0;
 }
 
 .valores-carousel {
@@ -185,9 +204,40 @@ export default {
   font-size: 18px;
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 600px) {
+  .valores-title {
+    font-size: 35px;
+  }
+
+  .swiper {
+    width: 60%;
+  }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 900px) {
+  .valores-title {
+    font-size: 35px;
+  }
+
+  .swiper {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .valores {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .valores-title {
+    font-size: 35px;
+  }
+
+  .swiper {
+    width: 92%;
+  }
 }
 </style>

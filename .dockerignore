@@ -1,0 +1,14 @@
+# Archivos y directorios específicos de Node.js
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Archivos y directorios generados por herramientas de desarrollo
+.env
+.DS_Store
+.vscode
+.idea
+
+# Archivos y directorios relacionados con el control de versiones
+.git
+.gitignore

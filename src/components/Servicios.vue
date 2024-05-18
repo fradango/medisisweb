@@ -1,5 +1,5 @@
 <template>
-  <section class="servicios">
+  <section id="servicios" class="servicios">
     <div class="servicios-title">Nuestros servicios</div>
     <section class="servicios-box">
       <div class="servicios-carousel">
@@ -21,7 +21,7 @@
           <div class="servicios-card-content">
             <h3 class="servicios-card-title">Consulting</h3>
             <p class="servicios-card-description">
-              Reclutamos al mejor talento de TI que necesitas
+              Ofrecemos asesoría estratégica en tecnología
             </p>
           </div>
         </article>
@@ -51,8 +51,8 @@ export default {
 .servicios {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 700px;
+  justify-content: space-around;
+  height: 1550px;
   width: 100%;
   background-image: linear-gradient(
     to right,
@@ -63,12 +63,8 @@ export default {
 }
 
 .servicios-title {
-  font-size: 35px;
-  margin-bottom: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  max-width: 1200px;
+  font-size: 30px;
+  margin-top: 10px;
   text-align: center;
   color: white;
   font-family: "IBM Plex Sans", sans-serif;
@@ -84,11 +80,10 @@ export default {
 }
 
 .servicios-carousel {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 500px;
-  gap: 50px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 30px;
+  margin-bottom: 30px;
 }
 
 .servicios-card {
@@ -99,6 +94,7 @@ export default {
   border: none;
   border-radius: 8px;
   background-color: white;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
 .servicios-card-img {
@@ -135,5 +131,46 @@ export default {
   text-align: center;
   margin: 12px;
   font-family: "IBM Plex Sans", sans-serif;
+}
+
+@media screen and (min-width: 600px) {
+  .servicios-carousel {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .servicios {
+    height: 1100px;
+  }
+
+  .servicios-box {
+    max-width: 900px;
+  }
+
+  .servicios-title {
+    font-size: 35px;
+  }
+
+  .servicios-carousel {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .servicios {
+    height: 650px;
+  }
+
+  .servicios-title {
+    font-size: 35px;
+  }
+
+  .servicios-carousel {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+  }
 }
 </style>
