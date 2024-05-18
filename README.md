@@ -1,6 +1,6 @@
 # Medisis TI
 
-Empresa peruana especializada en brindar servicios de hunting de personal de TI, consultoría de transfiormación digital y soluciones de desarrollo web y devops y servicios de software factory para desarrollar sistemas y aplicaciones.
+Empresa peruana especializada en brindar servicios de hunting de personal de TI, consultoría de transformación digital y soluciones de desarrollo web y devops y servicios de software factory para desarrollar sistemas y aplicaciones.
 
 ## Setup
 
