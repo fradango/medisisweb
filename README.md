@@ -7,7 +7,7 @@ Empresa peruana especializada en brindar servicios de hunting de personal de TI,
 ### Clonar el repositorio
 
 ```
-git clone https://github.com/tu-usuario/tu-repositorio.git
+git clone https://github.com/fradango/medisisweb.git
 ```
 
 ### Navegar al directorio del proyecto
