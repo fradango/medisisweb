@@ -5,24 +5,30 @@
         <img src="../assets/logo.png" alt="logo" />
       </div>
       <div class="footer-copyright">
-        © 2024 Medisis. Todos los derechos reservados
+        © 2024 Medisis SRL. Todos los derechos reservados
       </div>
       <div class="footer-contactenos">
-        <font-awesome-icon
-          icon="fa-brands fa-square-whatsapp"
-          class="size-icon"
-          style="color: #8be38f"
-        />
-        <font-awesome-icon
-          icon="fa-brands fa-linkedin"
-          class="size-icon"
-          style="color: #8be38f"
-        />
-        <font-awesome-icon
-          icon="fa-brands fa-square-facebook"
-          class="size-icon"
-          style="color: #8be38f"
-        />
+        <a :href="whatsappLink" target="_blank">
+          <font-awesome-icon
+            icon="fa-brands fa-square-whatsapp"
+            class="size-icon"
+            style="color: #8be38f"
+          />
+        </a>
+        <a :href="linkedinLink" target="_blank">
+          <font-awesome-icon
+            icon="fa-brands fa-linkedin"
+            class="size-icon"
+            style="color: #8be38f"
+          />
+        </a>
+        <a :href="facebookLink" target="_blank">
+          <font-awesome-icon
+            icon="fa-brands fa-square-facebook"
+            class="size-icon"
+            style="color: #8be38f"
+          />
+        </a>
       </div>
     </div>
   </footer>
@@ -31,6 +37,13 @@
 <script>
 export default {
   name: "Footer",
+  data() {
+    return {
+      whatsappLink: "https://wa.me/945659062",
+      linkedinLink: "https://www.linkedin.com/in/tuusuario",
+      facebookLink: "https://www.facebook.com/tupagina",
+    };
+  },
 };
 </script>
 
@@ -73,6 +86,8 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-size: 18px;
+  margin: 0 15px 0 15px;
 }
 
 .footer-contactenos {

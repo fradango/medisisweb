@@ -4,9 +4,9 @@
       <div class="mision-box">
         <div class="mision-title">Nuestra misión</div>
         <div class="mision-content">
-          Medisis Outsourcing es una empresa con la misión de ayudar a las
-          empresas con su transformación digital mediante nuestros servicios
-          especializados en TI
+          MedisisTech tiene como misión ayudar a las empresas con su
+          transformación digital mediante nuestros servicios especializados en
+          TI
         </div>
       </div>
       <div class="mision-img">

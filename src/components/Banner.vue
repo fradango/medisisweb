@@ -3,7 +3,7 @@
     <nav class="navbar">
       <div class="logo-box">
         <img src="../assets/logo.png" alt="LogoMedisis" />
-        <div class="brand-name">Medisis TI</div>
+        <div class="brand-name">MedisisTech</div>
       </div>
       <button class="hamburger-menu" @click="toggleMenu">
         <font-awesome-icon
@@ -19,16 +19,19 @@
       </ul>
     </nav>
     <div class="banner-presentation">
-      <div class="banner-title-1">Transformamos el futuro de tu empresa</div>
-      <div class="banner-title-2">
-        Conectando Innovación, Impulsando Negocios
+      <div class="banner-title-1">
+        Transformamos el futuro de tu empresa
+        <br />
+        <span class="banner-title-2"
+          >integrando tecnología, innovación y talento</span
+        >
       </div>
       <div class="banner-editor">
         <div class="code-editor">
-          <div class="editor-header">Medisis</div>
+          <div class="editor-header">MedisisTech</div>
           <div class="editor-body">
             <div class="typing-text">
-              Potencia tu empresa con los mejores
+              Potencia tu empresa con nuestros servicios de
               <span class="dynamic-text">{{ dynamicText }}</span
               ><span class="cursor">|</span>
             </div>
@@ -45,11 +48,7 @@ export default {
   data() {
     return {
       dynamicText: "",
-      phrases: [
-        "desarrolladores frontend",
-        "desarrolladores backend",
-        "administradores de base de datos",
-      ],
+      phrases: ["Outsourcing TI", "Consultoría TI", "Software Factory"],
       currentPhrase: 0,
       isMenuOpen: false,
     };
@@ -98,7 +97,7 @@ export default {
 .banner {
   display: flex;
   flex-direction: column;
-  height: 720px;
+  height: 700px;
   background-image: linear-gradient(
     to right,
     #011832 0%,
@@ -152,7 +151,7 @@ export default {
 .banner-presentation {
   display: flex;
   flex-direction: column;
-  height: 620px;
+  height: 600px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -160,7 +159,7 @@ export default {
 }
 
 .banner-title-1 {
-  height: 15%;
+  height: 30%;
   margin: 20px 15px 0 15px;
   color: white;
   font-size: 30px;
@@ -170,13 +169,13 @@ export default {
 }
 
 .banner-title-2 {
-  height: 15%;
+  /*height: 15%;*/
   color: #8be38f;
-  font-size: 30px;
+  /*font-size: 30px;
   margin: 0 15px 0 15px;
   text-align: center;
   font-weight: bold;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;*/
 }
 
 .banner-editor {
@@ -243,18 +242,7 @@ export default {
 @media screen and (min-width: 600px) {
   .banner-title-1 {
     font-size: 35px;
-    height: 15%;
     margin: 50px 50px 0 50px;
-  }
-
-  .banner-title-2 {
-    font-size: 35px;
-    height: 15%;
-    margin: 0 50px 0 50px;
-  }
-
-  .banner-editor {
-    height: 70%;
   }
 
   .code-editor {
@@ -302,14 +290,8 @@ export default {
 
   .banner-title-1 {
     font-size: 40px;
-    height: 10%;
+    height: 20%;
     margin: 50px 50px 0 50px;
-  }
-
-  .banner-title-2 {
-    font-size: 40px;
-    height: 10%;
-    margin: 0 50px 0 50px;
   }
 
   .banner-editor {
@@ -361,14 +343,8 @@ export default {
 
   .banner-title-1 {
     font-size: 50px;
-    height: 10%;
+    height: 20%;
     margin: 50px 50px 0 50px;
-  }
-
-  .banner-title-2 {
-    font-size: 50px;
-    height: 10%;
-    margin: 0 50px 0 50px;
   }
 
   .banner-editor {
@@ -380,7 +356,7 @@ export default {
   }
 
   .editor-body {
-    margin: 0 50px 0 50px;
+    margin: 0 55px 0 55px;
   }
 
   .typing-text {

@@ -8,7 +8,7 @@
             <img src="../assets/hunting.jpg" alt="hunting" />
           </figure>
           <div class="servicios-card-content">
-            <h3 class="servicios-card-title">Hunting</h3>
+            <h3 class="servicios-card-title">Outsourcing TI</h3>
             <p class="servicios-card-description">
               Reclutamos al mejor talento de TI que necesitas
             </p>
@@ -19,7 +19,7 @@
             <img src="../assets/consulting.jpg" alt="consulting" />
           </figure>
           <div class="servicios-card-content">
-            <h3 class="servicios-card-title">Consulting</h3>
+            <h3 class="servicios-card-title">Consulting TI</h3>
             <p class="servicios-card-description">
               Ofrecemos asesoría estratégica en tecnología
             </p>
@@ -66,6 +66,7 @@ export default {
   font-size: 30px;
   margin-top: 10px;
   text-align: center;
+  font-weight: 420;
   color: white;
   font-family: "IBM Plex Sans", sans-serif;
 }
