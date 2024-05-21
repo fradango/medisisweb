@@ -6,6 +6,7 @@ import {
   faScaleBalanced,
   faGears,
   faBars,
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faLightbulb,
@@ -30,7 +31,8 @@ library.add(
   faLinkedin,
   faSquareWhatsapp,
   faWhatsapp,
-  faBars
+  faBars,
+  faTimes
 );
 
 createApp(App).component("font-awesome-icon", FontAwesomeIcon).mount("#app");

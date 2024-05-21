@@ -1,17 +1,19 @@
 <template>
   <section class="banner">
-    <nav class="navbar">
+    <nav :class="['navbar', { 'navbar-open': isMenuOpen }]">
       <div class="logo-box">
         <img src="../assets/logo.png" alt="LogoMedisis" />
         <div class="brand-name">MedisisTech</div>
       </div>
-      <button class="hamburger-menu" @click="toggleMenu">
-        <font-awesome-icon
-          icon="fa-solid fa-bars"
-          class="size-icon"
-          style="color: #8be38f"
-        />
-      </button>
+      <div class="hamburger-menu">
+        <button class="hamburger-button" @click="toggleMenu">
+          <font-awesome-icon
+            :icon="isMenuOpen ? 'fa-solid fa-times' : 'fa-solid fa-bars'"
+            class="size-icon"
+            style="color: #8be38f"
+          />
+        </button>
+      </div>
       <ul class="menu-box">
         <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#servicios">Servicios</a></li>
@@ -39,6 +41,17 @@
         </div>
       </div>
     </div>
+
+    <!-- Menú lateral -->
+    <transition name="slide">
+      <div v-if="isMenuOpen" class="side-menu">
+        <ul>
+          <li><a href="#nosotros" @click="toggleMenu">Nosotros</a></li>
+          <li><a href="#servicios" @click="toggleMenu">Servicios</a></li>
+          <li><a href="#clientes" @click="toggleMenu">Clientes</a></li>
+        </ul>
+      </div>
+    </transition>
   </section>
 </template>
 
@@ -116,6 +129,12 @@ export default {
   height: 100px;
 }
 
+.navbar-open {
+  background-color: #011832; /* Mismo color que el sidebar */
+  position: fixed;
+  z-index: 1000;
+}
+
 .logo-box {
   width: 60%;
   height: 100%;
@@ -133,15 +152,18 @@ export default {
 }
 
 .hamburger-menu {
-  font-size: 30px;
-  background: none;
-  border: none;
-  cursor: pointer;
   width: 40%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   margin: 0 15px 0 0;
+}
+
+.hamburger-button {
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .menu-box {
@@ -169,13 +191,7 @@ export default {
 }
 
 .banner-title-2 {
-  /*height: 15%;*/
   color: #8be38f;
-  /*font-size: 30px;
-  margin: 0 15px 0 15px;
-  text-align: center;
-  font-weight: bold;
-  font-family: "IBM Plex Sans", sans-serif;*/
 }
 
 .banner-editor {
@@ -237,6 +253,56 @@ export default {
   50% {
     opacity: 0;
   }
+}
+
+/* Estilos para el menú lateral */
+.side-menu {
+  position: fixed;
+  top: 100px;
+  width: 100%;
+  height: 200px;
+  background-color: #011832;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.slide-enter, .slide-leave-to /* .slide-leave-active en versiones anteriores de Vue */ {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.slide-enter-to {
+  transform: translateY(-100px);
+  opacity: 1;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.side-menu li {
+  margin: 20px 0;
+}
+
+.side-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: "IBM Plex Sans", sans-serif;
+  text-align: center;
+  display: block;
+  width: 100%;
 }
 
 @media screen and (min-width: 600px) {
